@@ -12,7 +12,7 @@ function ProductDetail() {
   const [product,setProduct]=useState(null);
   //console.log(id)
   const getProductDetail=async()=>{
-    let url=`https://my-json-server.typicode.com/love917/604shop/products/${id}`;
+    let url=`https://my-json-server.typicode.com/love917/shop604/products/${id}`;
     let response=await fetch(url);
     let data=await response.json();
     console.log(data)
