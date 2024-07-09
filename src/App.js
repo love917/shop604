@@ -3,13 +3,13 @@ import Root from "./page/Root";
 import ProductAll from "./page/ProductAll";
 import Login from "./page/Login";
 import ProductDetail from "./page/ProductDetail";
-import PrivateRoust from "./router/PrivateRoust";
+import PrivateRoute from "./route/PrivateRoute";
 
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import { useEffect, useState } from "react";
 
 function App() {
-  const [authenticate, setAuthenticate] = useState(false); //로그인 안되있는 상태(false)
+  const [authenticate, setAuthenticate] = useState(false);
   useEffect(() => {
     console.log("로그인");
   }, [authenticate]);
@@ -28,7 +28,7 @@ function App() {
         },
         {
           path: "/product/:id",
-          element: <PrivateRoust authenticate={authenticate} />,
+          element: <PrivateRoute authenticate={authenticate} />,
         },
       ],
     },

@@ -1,32 +1,23 @@
-import React from 'react'
-import 'bootstrap/dist/css/bootstrap.min.css';
-import { Form, FormGroup, Label, Input, Button } from 'reactstrap';
-import { useNavigate } from 'react-router-dom';
+import React from "react";
+import "bootstrap/dist/css/bootstrap.min.css";
+import { Form, FormGroup, Label, Input, Button } from "reactstrap";
+import { useNavigate } from "react-router-dom";
 
-function Login({setAuthenticate}) {
-  const navigate=useNavigate();
-  const loginUser=(e)=>{
-    e.preventDefault(); //react는 새로고침 되면 안됨
+function Login({ setAuthenticate }) {
+  const navigate = useNavigate();
+  const loginUser = (e) => {
+    e.preventDefault();
     setAuthenticate(true);
-    navigate("/"); //3000번 메인페이지를 말함
-  }
+    navigate("/");
+  };
   return (
-    <Form onSubmit={loginUser} className='loginForm'>
+    <Form onSubmit={loginUser} className="loginForm">
       <FormGroup>
-        <Label for="exampleAddress">
-          Email address
-        </Label>
-        <Input
-          id="exampleAddress"
-          name="address"
-          placeholder="Enter email"
-        />
+        <Label for="exampleAddress">Email address</Label>
+        <Input id="exampleAddress" name="address" placeholder="Enter email" />
       </FormGroup>
-
       <FormGroup>
-        <Label for="exampleAddress2">
-          Password
-        </Label>
+        <Label for="examplePassword">Password</Label>
         <Input
           id="examplePassword"
           name="password"
@@ -42,4 +33,4 @@ function Login({setAuthenticate}) {
   );
 }
 
-export default Login
+export default Login;

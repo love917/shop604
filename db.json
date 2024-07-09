@@ -86,7 +86,7 @@
         "id": 9,
         "img": "https://understanding963852.github.io/img/hmgoepprod_10.jfif",
         "title": "크레이프 랩스타일 드레스",
-        "price": "19,000원",
+        "price": "19,900원",
         "choice": false,
         "new": true,
         "size": ["S", "M", "L"]
@@ -95,7 +95,7 @@
         "id": 10,
         "img": "https://understanding963852.github.io/img/hmgoepprod_11.jfif",
         "title": "타이 디테일 니트 드레스",
-        "price": "19,000원",
+        "price": "19,900원",
         "choice": true,
         "new": false,
         "size": ["S", "M", "L"]

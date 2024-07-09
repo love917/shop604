@@ -1,22 +1,23 @@
 import React, { useEffect, useState } from "react";
+import { useParams } from "react-router-dom";
+
 
 import 'bootstrap/dist/css/bootstrap.min.css';
-import { Container,Row,Col,Dropdown,DropdownToggle,DropdownMenu,DropdownItem,Button } from 'reactstrap';
-import { useParams } from "react-router-dom";
+import { Container,Row,Col,  Dropdown,DropdownToggle,DropdownMenu,DropdownItem,Button } from 'reactstrap';
 
 
 function ProductDetail() {
   const [dropdownOpen, setDropdownOpen] = useState(false);
-  let {id}=useParams();
-  const [product, setProduct] = useState(null);
-  console.log(id)
-  const getProductDetail = async()=>{
+  let { id } = useParams();
+  const [product,setProduct]=useState(null);
+  //console.log(id)
+  const getProductDetail=async()=>{
     let url=`http://localhost:3004/products/${id}`;
-    let response = await fetch(url);
-    let data = await response.json();
+    let response=await fetch(url);
+    let data=await response.json();
+    console.log(data)
     setProduct(data)
   }
-
   
   useEffect(()=>{
     getProductDetail()
@@ -42,23 +43,20 @@ function ProductDetail() {
           <div>{product?.title}</div>
           <div>{product?.price}</div>
           <div className="choice">{product?.choice?"Conscious choice":""}</div>
-
           <div>
-            <Dropdown isOpen={dropdownOpen} toggle={toggle}>
-              <DropdownToggle caret>사이즈</DropdownToggle>
-              <DropdownMenu >
-                {product?.size.map((item)=>{
-                  return (<DropdownItem>{item}</DropdownItem>)
-                })}
-              </DropdownMenu>
-            </Dropdown>
+          <Dropdown isOpen={dropdownOpen} toggle={toggle}>
+        <DropdownToggle caret>사이즈</DropdownToggle>
+        <DropdownMenu >
+          {product?.size.map((item)=>{
+            return (<DropdownItem>{item}</DropdownItem>)
+
+          })}
+        </DropdownMenu>
+      </Dropdown>
+      <Button color="danger">
+      추가
+      </Button>
           </div>
-
-          <Button color="danger">
-            danger
-          </Button>
-          {' '}
-
         </Col>
       </Row>
     </Container>
